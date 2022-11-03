@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $insert = "INSERT INTO `users` 
                     (`id`, `login`, `date_birthday`, `address`, `sex`, `interests`, `blood_type`, `factor`, `vk`, `password`) 
                     VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        // '$email', '$birthday_date', '$address', '$sex', '$interests', '$blood_type', '$factor', '$vk', '$password'
+        
         $queryPrep = mysqli_prepare($connect, $insert); // подготавливаем SQL запрос (защита от инъекций)
         mysqli_stmt_bind_param($queryPrep, 'sssisisss',$email, $birthday_date, $address, $sex, $interests, $blood_type, $factor, $vk, $password ); // привязка переменных к парметрам
         mysqli_stmt_execute($queryPrep); // выполняем запрос return TRUE or FALSE
